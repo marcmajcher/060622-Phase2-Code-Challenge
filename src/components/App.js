@@ -15,6 +15,10 @@ function App() {
     .then(res => res.json())
     .then(setPlanateer)
   },[])
+  
+  function createRandomPlanateer (randomPlaneteer) {
+    setPlanateer([...planateer, randomPlaneteer])
+  }
 
   const searchResults = planateer.filter((p) =>{
     return p.name.toLowerCase().includes(seachState.toLowerCase())
@@ -26,11 +30,12 @@ function App() {
   }
   //console.log(seachState)
 
+
   return (
     <div>
       <Header />
       <SearchBar handleSearch={handleSearch} seachState={seachState} />
-      <RandomButton />
+      <RandomButton createRandomPlanateer={createRandomPlanateer}/>
       <PlaneteersContainer planateer={searchResults} />
     </div>
   );

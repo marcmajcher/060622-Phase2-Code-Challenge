@@ -1,9 +1,12 @@
 import React, {useState} from "react";
 
 function Planeteer({p}) {
-  const { pictureUrl, name, bio, twitter, fromUSA, quote } = p
+  const { pictureUrl, name, bio, twitter, fromUSA, quote, born } = p
   const [showBio, setShowBio] = useState(true)
   //bio, born, fromUSA, id, name, pictureUrl, quote, twitter
+  let date = new Date().getFullYear()
+  let birthDate = date - born
+  
 
   function handleClick(planateer) {
     setShowBio(!showBio)
@@ -22,6 +25,7 @@ function Planeteer({p}) {
           <p className="card__text">{showBio ? bio : quote }</p>
           <div className="card__detail">
             <p>{twitter}</p>
+            <p>Age : {birthDate}</p>
             <p>
               {fromUSA ? 'USA-based' : 'Working overseas'}
             </p>
