@@ -20,8 +20,11 @@ function App() {
     setPlanateer([...planateer, randomPlaneteer])
   }
 
-  const searchResults = planateer.filter((p) =>{
-    return p.name.toLowerCase().includes(seachState.toLowerCase())
+  const searchResults = planateer.filter
+  ((p) => {
+   return p.name.toLowerCase().includes(seachState.toLowerCase()) ||
+    p.bio.toLowerCase().includes(seachState.toLocaleLowerCase())
+    
   })
   //console.log(searchResults)
 
